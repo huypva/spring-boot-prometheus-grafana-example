@@ -1,13 +1,13 @@
-package io.codebyexample.helloworld;
+package io.codebyexample.springbootprometheusgrafana;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HelloWorldApplication {
+public class PrometheusGrafanaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloWorldApplication.class, args);
+		SpringApplication.run(PrometheusGrafanaApplication.class, args);
 	}
 
 }

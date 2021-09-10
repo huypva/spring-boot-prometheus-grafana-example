@@ -9,7 +9,7 @@ The example project for StringBoot service
 ## Project structure
 ```
 .
-├── hello-world
+├── spring-boot-prometheus-grafana
 │   ├── Dockerfile
 │   ...
 ├── docker-compose.yaml
@@ -31,9 +31,8 @@ The example project for StringBoot service
 
 - Build project
 ```shell script
-$ mvn clean package
-$ cd spring-boot-kafka
-$ mvn spring-boot:run
+$ ./mvnw clean package
+$ ./mvnw spring-boot:run
 ...
 ```
 

@@ -1,9 +1,20 @@
 version: "3.4"
+
 services:
-  hello-world:
-    build: hello-world
-    container_name: 'hello-world'
-    environment:
-      - spring_profiles_active=docker
+#  spring-boot-promethues-grafana:
+#    build: ./spring-boot-promethues-grafana
+#    ports:
+#      - "8080:8080"
+#    container_name: spring-boot-prometheus-grafana
+  prometheus:
+    image: "prom/prometheus"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
-      - 8081:8081
+      - "9090:9090"
+    container_name: prometheus
+  grafana:
+    image: "grafana/grafana"
+    ports:
+      - "3000:3000"
+    container_name: grafana

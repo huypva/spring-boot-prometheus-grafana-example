@@ -4,13 +4,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.codebyexample</groupId>
-    <artifactId>spring-boot-template</artifactId>
+    <artifactId>spring-boot-promethues-grafana-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Parent</name>
 
     <modules>
-        <module>hello-world</module>
+        <module>spring-boot-prometheus-grafana</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
