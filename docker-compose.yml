@@ -1,20 +1,28 @@
 version: "3.4"
 
 services:
-#  spring-boot-promethues-grafana:
-#    build: ./spring-boot-promethues-grafana
-#    ports:
-#      - "8080:8080"
-#    container_name: spring-boot-prometheus-grafana
+  spring-boot-prometheus-grafana:
+    build: ./spring-boot-prometheus-grafana
+    ports:
+      - "8080:8080"
+    container_name: spring-boot-prometheus-grafana
+    networks:
+      - prometheus-grafana-network
   prometheus:
     image: "prom/prometheus"
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./infrastructure/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     container_name: prometheus
+    networks:
+      - prometheus-grafana-network
   grafana:
     image: "grafana/grafana"
     ports:
       - "3000:3000"
     container_name: grafana
+    networks:
+      - prometheus-grafana-network
+networks:
+  prometheus-grafana-network:
