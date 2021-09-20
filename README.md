@@ -86,7 +86,7 @@ $ sh send_request_script.sh
 - Setup Prometheus datasource
 ![setup ds prometheus](./assets/images/setup_ds_prometheus.png)
 
-- Import dashboard id [4701](https://grafana.com/grafana/dashboards/4701) (or load from file [spring-boot-metrics](./assets/spring-boot-metrics.png))
+- Import dashboard id [4701](https://grafana.com/grafana/dashboards/4701) (or load from file spring-boot-metrics.json trong thư mục./assets)
 ![jvm_1](./assets/images/import_jvm_metric_1.png)
 ![jvm_2](./assets/images/import_jvm_metric_2.png)
 
@@ -130,7 +130,7 @@ sum(rate(http_server_requests_seconds_bucket{application="$application", instanc
 histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m])) by (le, uri))
 ```
 
-![extra metrics](./assets/images/grafna_extra_metrics.png)
+![extra metrics](./assets/images/grafana_extra_metrics.png)
 
 ## Contribute
 
