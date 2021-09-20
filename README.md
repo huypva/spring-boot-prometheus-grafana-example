@@ -45,7 +45,7 @@ docker volume create grafana-storage
 
 - Start project
 ```shell script
-docker-compose up -d
+docker-compose up -d --scale spring-boot-prometheus-grafana=2
 ```
 
 - Stop project
@@ -71,6 +71,7 @@ http_server_requests_seconds_max{exception="None",method="GET",outcome="CLIENT_E
 # HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
 # TYPE process_cpu_usage gauge
 process_cpu_usage 0.009735744089012517
+...
 ```
 
 - Send sample request
