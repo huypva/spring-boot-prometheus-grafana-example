@@ -22,4 +22,4 @@ management:
       sla:
         http:
           server:
-            requests: 1ms,50ms,100ms,500ms,1s,5s,10s,50s
+            requests: 1ms,20ms,50ms,100ms,200ms,500ms,1s,2s,5s,10s,10s,50s

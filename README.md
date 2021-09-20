@@ -81,22 +81,43 @@ $ sh send_request_script.sh
 
 - To see Prometheus dashboard, navigate your browser to http://localhost:9090
 
-- Visit http://localhost:3000 to login Grafana dashboard
+- Visit http://localhost:3000 to login Grafana dashboard.
+
+- Setup Prometheus datasource
+![setup ds prometheus](./assets/images/setup_ds_prometheus.png)
+
+- Import dashboard id [4701](https://grafana.com/grafana/dashboards/4701) (or load from file [spring-boot-metrics](./assets/images/spring-boot-metrics.png))
+![jvm_1](./assets/images/import_jvm_metric_1.png)
+![jvm_2](./assets/images/import_jvm_metric_2.png)
+
+ 
+- See some jvm metrics
+
+![jmv metrics](./assets/images/grafna_jvm_metrics.png)
 
 ## Tạo một số metrics
 
-### Success rate
-- Metric A
+### Success rate for all api
+- Metric 1
 ```text
 sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance", status="200"}[1m]))
 /
 sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m]))
 ```
+
+- Metric 2
+```text
+sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance", status!="200"}[1m]))
+/
+sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m]))
+```
+
+
 - Metric B
 ```text
-sum(increase(http_server_requests_seconds_bucket{uri="/actuator/prometheus", status!="200"}[1m]))
+sum(increase(http_server_requests_seconds_bucket{uri="/greeting", status!="200"}[1m]))
 /
-sum(increase(http_server_requests_seconds_bucket{uri="/actuator/prometheus"}[1m]))
+sum(increase(http_server_requests_seconds_bucket{uri="/greeting"}[1m]))
 ```
 
 ### Throughput
@@ -108,6 +129,9 @@ sum(rate(http_server_requests_seconds_bucket{application="$application", instanc
 ```text
 histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m])) by (le, uri))
 ```
+
+![extra metrics](./assets/images/grafna_jvm_metrics.png)
+
 ## Contribute
 
 ## Reference
