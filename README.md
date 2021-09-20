@@ -93,7 +93,7 @@ $ sh send_request_script.sh
  
 - See some jvm metrics
 
-![jmv metrics](./assets/images/grafna_jvm_metrics.png)
+![jmv metrics](assets/images/grafana_jvm_metrics.png)
 
 ## Tạo một số metrics
 
@@ -130,7 +130,7 @@ sum(rate(http_server_requests_seconds_bucket{application="$application", instanc
 histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m])) by (le, uri))
 ```
 
-![extra metrics](./assets/images/grafna_jvm_metrics.png)
+![extra metrics](./assets/images/grafna_extra_metrics.png)
 
 ## Contribute
 
