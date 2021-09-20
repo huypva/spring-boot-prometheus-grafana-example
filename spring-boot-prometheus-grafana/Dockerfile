@@ -20,4 +20,4 @@ ARG DEPENDENCY=/workdir/${SERVICE_NAME}/target/dependency
 COPY --from=builder ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=builder ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=builder ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","io.codebyexample.springbootprometheusgrafana.SpringBootPrometheusGrafanaApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","io.codebyexample.springbootprometheusgrafana.PrometheusGrafanaApplication"]

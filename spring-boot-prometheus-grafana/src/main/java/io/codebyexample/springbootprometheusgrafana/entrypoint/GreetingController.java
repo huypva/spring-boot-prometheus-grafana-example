@@ -1,20 +1,21 @@
 package io.codebyexample.springbootprometheusgrafana.entrypoint;
 
 import io.codebyexample.springbootprometheusgrafana.core.usercase.Greet;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author huypva
  */
-@Controller
+@RestController
 public class GreetingController {
 
+  @Autowired
   private Greet greet;
 
-  @GetMapping("/greet")
-  public String greet(@RequestParam(value = "name") String name) {
-    return greet.greet(name);
+  @GetMapping("/greeting")
+  public String greeting() {
+    return greet.greeting();
   }
 }

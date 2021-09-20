@@ -5,5 +5,5 @@ package io.codebyexample.springbootprometheusgrafana.core.usercase;
  */
 public interface Greet {
 
-  public String greet(String name);
+  String greeting();
 }

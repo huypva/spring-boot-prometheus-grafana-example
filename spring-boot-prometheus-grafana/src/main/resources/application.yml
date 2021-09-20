@@ -4,16 +4,22 @@ spring:
   profiles:
     active: local
   application:
-    name: "hello-word"
+    name: "spring-boot-prometheus-grafana"
 management:
   endpoints:
     web:
       exposure:
         include: health, shutdown, prometheus
-#  metrics:
-#    export:
-#      prometheus:
-#        enabled: true
-#    distribution:
-#      percentiles-histogram:
-#        http: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        http: false
+      sla:
+        http:
+          server:
+            requests: 1ms,50ms,100ms,500ms,1s,5s,10s,50s

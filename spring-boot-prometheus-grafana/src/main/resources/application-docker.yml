@@ -2,4 +2,4 @@ server:
   port : 8081
 spring:
   application:
-    name: "hello-word"
+    name: "spring-boot-prometheus-grafana"
