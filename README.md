@@ -40,17 +40,17 @@ $ ./mvnw spring-boot:run
 
 - Create volume 
 ```shell script
-docker volume create grafana-storage
+$ docker volume create grafana-storage
 ```
 
 - Start project
 ```shell script
-docker-compose up -d --scale spring-boot-prometheus-grafana=2
+$ docker-compose up -d --scale spring-boot-prometheus-grafana=2
 ```
 
 - Stop project
 ```shell script
-docker-compose down
+$ docker-compose down
 ```
 
 ## Run testing
